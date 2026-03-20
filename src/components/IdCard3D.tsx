@@ -18,7 +18,7 @@ declare module '@react-three/fiber' {
 const TAG_URL =
   'https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/5huRVDzcoDwnbgrKUo1Lzs/53b6dd7d6b4ffcdbd338fa60265949e1/tag.glb'
 const BAND_URL =
-  'https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/SOT1hmCesOHxEYxL7vkoZ/c57b29c85912047c414311723320c16b/band.jpg'
+  '/band.png'
 
 function Band({ maxSpeed = 50 }) {
   const band = useRef<any>(null!) // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -43,8 +43,10 @@ function Band({ maxSpeed = 50 }) {
   const { nodes, materials } = useGLTF(TAG_URL) as any // eslint-disable-line @typescript-eslint/no-explicit-any
   const texture = useTexture(BAND_URL) as THREE.Texture
   const cardTexture = useTexture('/vraj.png') as THREE.Texture
-  cardTexture.flipY = true
+  cardTexture.flipY = false
   cardTexture.colorSpace = THREE.SRGBColorSpace
+  cardTexture.offset.set(0.14, -0.1)
+  cardTexture.repeat.set(1.4, 1.4)
   const { width, height } = useThree((state) => state.size)
   const [curve] = useState(
     () => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()])
@@ -143,18 +145,13 @@ function Band({ maxSpeed = 50 }) {
           >
             <mesh geometry={nodes.card.geometry}>
               <meshPhysicalMaterial
-                map={materials.base.map}
+                map={cardTexture}
                 map-anisotropy={16}
                 clearcoat={1}
                 clearcoatRoughness={0.15}
                 roughness={0.3}
                 metalness={0.5}
               />
-            </mesh>
-            {/* Photo overlay on card front face */}
-            <mesh position={[0, 0.5, 0.01]}>
-              <planeGeometry args={[0.68, 0.88]} />
-              <meshBasicMaterial map={cardTexture} toneMapped={false} />
             </mesh>
             <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
             <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
