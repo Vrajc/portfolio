@@ -598,8 +598,8 @@ function App() {
             {[
               { label: 'EMAIL', value: 'vrajc494@gmail.com', href: 'mailto:vrajc494@gmail.com' },
               { label: 'PHONE', value: '9825284593', href: 'tel:+919825284593' },
-              { label: 'LINKEDIN', value: 'linkedin.com/in/vrajchauhan', href: 'https://linkedin.com/in/vrajchauhan' },
-              { label: 'GITHUB', value: 'github.com/vrajchauhan', href: 'https://github.com/vrajchauhan' },
+              { label: 'LINKEDIN', value: 'linkedin.com/in/vraj-chauhan07', href: 'https://www.linkedin.com/in/vraj-chauhan07/' },
+              { label: 'GITHUB', value: 'github.com/Vrajc', href: 'https://github.com/Vrajc' },
               { label: 'LOCATION', value: 'Gandhinagar, Gujarat, India' },
             ].map((c) => (
               <div className="contact-row" key={c.label}>

@@ -47,6 +47,40 @@ function Band({ maxSpeed = 50 }) {
   cardTexture.colorSpace = THREE.SRGBColorSpace
   cardTexture.offset.set(0.14, -0.1)
   cardTexture.repeat.set(1.4, 1.4)
+
+  const [backTexture] = useState(() => {
+    const canvas = document.createElement('canvas')
+    canvas.width = 512
+    canvas.height = 720
+    const ctx = canvas.getContext('2d')!
+    ctx.fillStyle = '#111111'
+    ctx.fillRect(0, 0, 512, 720)
+    ctx.fillStyle = '#ffffff'
+    ctx.font = 'bold 48px monospace'
+    ctx.textAlign = 'center'
+    ctx.fillText('VRAJ', 256, 180)
+    ctx.fillText('CHAUHAN', 256, 240)
+    ctx.fillStyle = '#cc0000'
+    ctx.font = '32px monospace'
+    ctx.fillText('DEVELOPER', 256, 310)
+    ctx.fillStyle = '#888888'
+    ctx.font = '24px monospace'
+    ctx.fillText('Full Stack', 256, 380)
+    ctx.fillText('React \u2022 Node \u2022 Three.js', 256, 420)
+    ctx.strokeStyle = '#cc0000'
+    ctx.lineWidth = 2
+    ctx.beginPath()
+    ctx.moveTo(130, 460)
+    ctx.lineTo(382, 460)
+    ctx.stroke()
+    ctx.fillStyle = '#666666'
+    ctx.font = '20px monospace'
+    ctx.fillText('Building the future', 256, 510)
+    ctx.fillText('one line at a time', 256, 545)
+    const tex = new THREE.CanvasTexture(canvas)
+    tex.colorSpace = THREE.SRGBColorSpace
+    return tex
+  })
   const { width, height } = useThree((state) => state.size)
   const [curve] = useState(
     () => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()])
@@ -152,6 +186,11 @@ function Band({ maxSpeed = 50 }) {
                 roughness={0.3}
                 metalness={0.5}
               />
+            </mesh>
+            {/* Back face with text */}
+            <mesh position={[0, 0.52, -0.01]} rotation={[0, Math.PI, 0]}>
+              <planeGeometry args={[0.68, 0.95]} />
+              <meshBasicMaterial map={backTexture} toneMapped={false} />
             </mesh>
             <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
             <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
