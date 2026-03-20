@@ -1,0 +1,225 @@
+/* ===== FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+/* ===== THEME ===== */
+:root {
+  --bg: #000000;
+  --white: #FFFFFF;
+  --red: #CC0000;
+  --red-muted: #1a0000;
+  --grey: #444444;
+  --grey-light: #666666;
+  --grey-dark: #1A1A1A;
+  --grey-mid: #333333;
+
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-body: 'DM Mono', monospace;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--red);
+  color: var(--white);
+}
+
+html {
+  cursor: none;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a { color: inherit; text-decoration: none; cursor: none; }
+button { font-family: inherit; cursor: none; border: none; background: none; }
+ul { list-style: none; }
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===== CURSOR ===== */
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10001;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cursor-follower {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--red);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s, width 0.3s, height 0.3s;
+}
+
+/* ===== GLOBAL GLITCH BACKGROUND ===== */
+.global-glitch {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===== ANIMATED GRAIN OVERLAY ===== */
+.grain-container {
+  position: fixed;
+  top: -150%;
+  left: -150%;
+  width: 400%;
+  height: 400%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.06;
+  overflow: hidden;
+}
+
+.grain-animation {
+  width: 100%;
+  height: 100%;
+  filter: url(#grainFilter);
+  animation: grain-shift 0.3s steps(3) infinite;
+}
+
+@keyframes grain-shift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, -3%); }
+  50% { transform: translate(3%, 1%); }
+  75% { transform: translate(-1%, 2%); }
+  100% { transform: translate(2%, -1%); }
+}
+
+/* ===== SCANLINES ===== */
+.scanlines {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 9998;
+  animation: scanline-drift 8s linear infinite;
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes glitch-shadow {
+  0%   { text-shadow: -3px 0 var(--red), 3px 0 #00ffff; }
+  20%  { text-shadow: 2px 0 var(--red), -2px 0 #00ffff; }
+  40%  { text-shadow: -2px 3px var(--red), 2px -3px #00ffff; }
+  60%  { text-shadow: 3px 1px var(--red), -3px 1px #00ffff; }
+  80%  { text-shadow: -1px -2px var(--red), 1px 2px #00ffff; }
+  100% { text-shadow: 2px -1px var(--red), -2px 1px #00ffff; }
+}
+
+@keyframes glitch-clip {
+  0%   { clip-path: inset(40% 0 57% 0); }
+  20%  { clip-path: inset(92% 0 1% 0); }
+  40%  { clip-path: inset(43% 0 25% 0); }
+  60%  { clip-path: inset(25% 0 54% 0); }
+  80%  { clip-path: inset(54% 0 38% 0); }
+  100% { clip-path: inset(58% 0 34% 0); }
+}
+
+@keyframes word-reveal {
+  from { opacity: 0; transform: translateY(100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes loading-bar {
+  0%   { width: 0%; }
+  80%  { width: 95%; }
+  100% { width: 100%; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes scroll-ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-line-bob {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50%      { transform: scaleY(0.6); opacity: 0.4; }
+}
+
+@keyframes scanline-drift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 4px; }
+}
+
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== SECTION SEPARATOR ===== */
+.section-sep {
+  width: 100%;
+  height: 1px;
+  background: var(--grey-dark);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  html, body { cursor: auto; }
+  a, button { cursor: auto; }
+  .cursor-dot, .cursor-follower { display: none !important; }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal-on-scroll { opacity: 1; transform: none; }
+}
