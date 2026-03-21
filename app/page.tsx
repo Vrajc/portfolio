@@ -16,7 +16,11 @@ export default function Home() {
         url: 'https://vraj-chauhan.tech/',
         image: 'https://vraj-chauhan.tech/vraj.png',
         jobTitle: 'Full Stack Developer',
-        sameAs: ['https://www.linkedin.com/in/vraj-chauhan07/', 'https://github.com/Vrajc'],
+        mainEntityOfPage: 'https://vraj-chauhan.tech/',
+        sameAs: [
+          'https://www.linkedin.com/in/vraj-chauhan07/',
+          'https://github.com/Vrajc'
+        ],
       },
       {
         '@type': 'WebSite',
