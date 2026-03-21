@@ -3,7 +3,10 @@ import './globals.css'
 import 'lenis/dist/lenis.css'
 import CustomCursor from '../src/components/CustomCursor'
 
-const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION
+const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION?.trim().replace(
+  /^google-site-verification=/,
+  ''
+)
 
 export const viewport: Viewport = {
   width: 'device-width',
