@@ -346,6 +346,7 @@
 @media (max-width: 768px) {
   .pd-back {
     left: 1.5rem;
+    top: 20px;
   }
 
   .pd-hero {
@@ -366,10 +367,193 @@
     flex-wrap: wrap;
   }
 
+  .pd-title {
+    font-size: clamp(2.4rem, 14vw, 4.75rem);
+  }
+
+  .pd-subtitle {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .pd-links {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+  }
+
+  .pd-link {
+    font-size: 0.62rem;
+  }
+
   .pd-next {
     flex-direction: column;
     gap: 1rem;
     align-items: flex-start;
     padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .pd-back {
+    left: 2.5rem;
+  }
+
+  .pd-hero,
+  .pd-content,
+  .pd-next {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pd-back {
+    left: 2rem;
+  }
+
+  .pd-hero {
+    min-height: 85vh;
+    padding: 0 2rem 3.5rem;
+  }
+
+  .pd-title {
+    font-size: clamp(3.5rem, 12vw, 8rem);
+  }
+
+  .pd-content {
+    padding: 4rem 2rem;
+  }
+
+  .pd-features li {
+    align-items: flex-start;
+  }
+
+  .pd-links {
+    flex-wrap: wrap;
+  }
+
+  .pd-next {
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pd-back {
+    left: 1rem;
+    top: 16px;
+    font-size: 0.55rem;
+    letter-spacing: 0.14em;
+  }
+
+  .pd-hero {
+    padding: 0 1rem 2.5rem;
+  }
+
+  .pd-hero-meta {
+    gap: 0.7rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.14em;
+    margin-bottom: 1.25rem;
+  }
+
+  .pd-subtitle {
+    margin-bottom: 1.5rem;
+  }
+
+  .pd-tag,
+  .pd-year,
+  .pd-tech-tag {
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+
+  .pd-content {
+    padding: 2.5rem 1rem;
+    gap: 2.5rem;
+  }
+
+  .pd-description p,
+  .pd-features li {
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+
+  .pd-next {
+    padding: 1.75rem 1rem;
+  }
+
+  .pd-next-name {
+    font-size: clamp(1.5rem, 9vw, 2.4rem);
+  }
+
+  .pnf-label {
+    font-size: 5rem;
+  }
+
+  .pnf-title {
+    font-size: 1.4rem;
+  }
+}
+
+@supports (height: 100svh) {
+  @media (max-width: 1024px) {
+    .pd-hero {
+      min-height: 100svh;
+    }
+  }
+}
+
+@media (max-width: 1024px) and (max-height: 760px) {
+  .pd-back {
+    top: 14px;
+  }
+
+  .pd-hero {
+    padding-bottom: 2rem;
+  }
+
+  .pd-title {
+    line-height: 0.82;
+  }
+
+  .pd-subtitle {
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Keep phone values authoritative after larger max-width queries */
+@media (max-width: 768px) {
+  .pd-back {
+    left: 1.5rem;
+  }
+
+  .pd-hero,
+  .pd-content,
+  .pd-next {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .pd-title,
+  .pd-next-name {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 380px) {
+  .pd-back {
+    left: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .pd-hero,
+  .pd-content,
+  .pd-next {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .pd-links {
+    gap: 0.75rem;
   }
 }
