@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
       'Responsive design with dark/light themes',
     ],
     links: [
-      { label: 'GITHUB', href: 'https://github.com/vrajchauhan' },
+      { label: 'GITHUB', href: 'https://github.com/Vrajc' },
     ],
     image: '/generated-1773827505168.png',
     bgKeywords: 'ai neural network abstract dark technology',
@@ -65,7 +65,7 @@ export const PROJECTS: Project[] = [
       'Cross-device sync via Firebase',
     ],
     links: [
-      { label: 'GITHUB', href: 'https://github.com/vrajchauhan' },
+      { label: 'GITHUB', href: 'https://github.com/Vrajc/hymnonics' },
     ],
     image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1920&q=80',
     bgKeywords: 'music sound waves dark neon audio',
@@ -92,7 +92,7 @@ export const PROJECTS: Project[] = [
       'Secure authentication with JWT tokens',
     ],
     links: [
-      { label: 'GITHUB', href: 'https://github.com/vrajchauhan' },
+      { label: 'GITHUB', href: 'https://github.com/Vrajc/Joblink_final' },
     ],
     image: '/joblink.png',
     bgKeywords: 'corporate office dark minimal business',
@@ -119,7 +119,7 @@ export const PROJECTS: Project[] = [
       'Multi-language support for rural users',
     ],
     links: [
-      { label: 'GITHUB', href: 'https://github.com/vrajchauhan' },
+      { label: 'GITHUB', href: 'https://github.com/Vrajc' },
     ],
     image: '/farm.png',
     bgKeywords: 'agriculture nature dark green technology',
@@ -146,7 +146,7 @@ export const PROJECTS: Project[] = [
       'Customizable command extensions',
     ],
     links: [
-      { label: 'GITHUB', href: 'https://github.com/vrajchauhan' },
+      { label: 'GITHUB', href: 'https://github.com/Vrajc/AI-voice-Assistant' },
     ],
     image: '/soundwaves.png',
     bgKeywords: 'ai voice assistant dark futuristic',
